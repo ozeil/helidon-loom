@@ -2,6 +2,8 @@
 # 1st stage, build the app
 FROM maven:3.8.7-eclipse-temurin-19 as build
 
+COPY maven-proxy-docker/settings.xml /root/.m2/settings.xml
+
 WORKDIR /helidon
 
 # Create a first layer to cache the "Maven World" in the local repository.
