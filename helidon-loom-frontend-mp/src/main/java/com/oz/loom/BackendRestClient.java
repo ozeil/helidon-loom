@@ -6,7 +6,7 @@ import jakarta.ws.rs.QueryParam;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @Path("/latency")
-@RegisterRestClient(baseUri = "http://helidon-loom-backend:8081")
+@RegisterRestClient
 public interface BackendRestClient {
 
     @GET
