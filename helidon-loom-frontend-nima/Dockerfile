@@ -27,6 +27,6 @@ WORKDIR /helidon
 COPY --from=build /helidon/target/helidon-loom-frontend-nima.jar ./
 COPY --from=build /helidon/target/libs ./libs
 
-CMD ["java", "--enable-preview", "-XX:StartFlightRecording=dumponexit=true,filename=/home/jfr/", "-jar", "helidon-loom-frontend-nima.jar"]
+CMD ["java", "--enable-preview", "-Djdk.tracePinnedThreads=full", "-XX:StartFlightRecording=dumponexit=true,filename=/home/jfr/", "-jar", "helidon-loom-frontend-nima.jar"]
 
 EXPOSE 8080

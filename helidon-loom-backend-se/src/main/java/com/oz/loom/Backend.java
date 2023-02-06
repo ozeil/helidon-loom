@@ -13,10 +13,13 @@ import java.util.concurrent.TimeUnit;
 
 public class Backend implements Service {
 
-    ScheduledExecutorService scheduler = new ScheduledThreadPoolExecutor(1);
+    ScheduledExecutorService scheduler;
+
+    private final int delay;
 
     Backend(Config config) {
-
+        this.delay = config.get("scheduler.delay").asInt().get();
+        this.scheduler = new ScheduledThreadPoolExecutor(config.get("scheduler.size").asInt().get());
     }
 
     @Override
@@ -29,7 +32,7 @@ public class Backend implements Service {
         scheduler.schedule(() -> {
             response.status(Http.Status.OK_200);
             response.send("Delayed response " + request.queryParams().first("requestNumber").get() + "!");
-        }, 333, TimeUnit.MILLISECONDS);
+        }, delay, TimeUnit.MILLISECONDS);
     }
 
 }

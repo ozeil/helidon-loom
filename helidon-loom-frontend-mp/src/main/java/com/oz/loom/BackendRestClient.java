@@ -6,7 +6,7 @@ import jakarta.ws.rs.QueryParam;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @Path("/latency")
-@RegisterRestClient
+@RegisterRestClient(configKey = "backend")
 public interface BackendRestClient {
 
     @GET

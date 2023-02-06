@@ -2,6 +2,10 @@ server:
   port: 8081
   host: 0.0.0.0
 
+scheduler:
+  delay: 333
+  size: 2
+
 app:
   greeting: "Hello"
 

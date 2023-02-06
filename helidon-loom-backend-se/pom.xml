@@ -15,6 +15,11 @@
 
     <properties>
         <mainClass>com.oz.loom.Main</mainClass>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+        <maven.compiler.release>${maven.compiler.source}</maven.compiler.release>
     </properties>
 
     <dependencies>
