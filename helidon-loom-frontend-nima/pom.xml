@@ -12,7 +12,7 @@
     <name>Helidon Loom Frontend Nima Version</name>
 
     <properties>
-        <helidon.version>4.0.0-ALPHA2</helidon.version>
+        <helidon.version>4.0.0-ALPHA4</helidon.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
