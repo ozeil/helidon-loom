@@ -14,7 +14,6 @@ import io.helidon.nima.webserver.http.ServerRequest;
 import io.helidon.nima.webserver.http.ServerResponse;
 
 public class NimaMain {
-    private static final Http.HeaderValue SERVER = Http.Header.create(Http.Header.SERVER, "Nima");
     private static final AtomicInteger COUNTER = new AtomicInteger();
     // no need to use secure random to compute sleep times
     private static final Random RANDOM = new Random();
@@ -36,11 +35,7 @@ public class NimaMain {
     }
 
     static void routing(HttpRouting.Builder rules) {
-        rules.addFilter((chain, req, res) -> {
-                    res.header(SERVER);
-                    chain.proceed();
-                })
-                .get("/remote", NimaMain::remote)
+        rules.get("/remote", NimaMain::remote)
                 .register("/blocking", new BlockingService())
                 .register("/latency", new LatencyService());
     }
