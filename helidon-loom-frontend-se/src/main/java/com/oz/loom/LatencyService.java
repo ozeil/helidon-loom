@@ -34,7 +34,7 @@ public class LatencyService implements Service {
         int numberOfRequests = request.queryParams().first("requestCount").map(Integer::parseInt).orElse(3);
 
         Multi.range(0, numberOfRequests)
-                .flatMap(i -> sendRequest(String.valueOf(i)), 1, false, 1)
+                .flatMap(i -> sendRequest(String.valueOf(i)))
                 .collectList()
                 .map(list -> String.join(" ", list))
                 .onError(response::send)
